@@ -1,0 +1,57 @@
+#!/usr/bin/env python3
+import subprocess
+import sys
+
+def run(cmd):
+    return subprocess.run(cmd, shell=True, check=False)
+
+def undo_commit():
+    print("Undoing last commit (keeping changes staged)...")
+    run("git reset --soft HEAD~1")
+
+def undo_add():
+    print("Unstaging all files...")
+    run("git reset")
+
+def undo_merge():
+    print("Aborting merge...")
+    run("git merge --abort")
+
+def undo_last():
+    print("Reverting to previous HEAD using reflog...")
+    run("git reset --hard HEAD@{1}")
+
+def help_text():
+    print("""
+Usage: git undo [action]
+
+Available actions:
+  commit   Undo last commit (keep changes)
+  add      Unstage files
+  merge    Abort merge
+  reset    Undo last reset using reflog
+  stash    Reapply last stash
+  (no arg) Auto-undo last safe action
+""")
+
+def main():
+    action = sys.argv[1] if len(sys.argv) > 1 else "auto"
+
+    if action == "commit":
+        undo_commit()
+    elif action == "add":
+        undo_add()
+    elif action == "merge":
+        undo_merge()
+    elif action == "reset":
+        undo_last()
+    elif action == "help":
+        help_text()
+    elif action == "auto":
+        undo_last()
+    else:
+        print("Unknown action.")
+        help_text()
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,50 @@
+#!/usr/bin/env python3
+import subprocess
+import sys
+
+def run(cmd):
+    result = subprocess.run(cmd, shell=True)
+    if result.returncode != 0:
+        sys.exit(result.returncode)
+
+def get_current_branch():
+    result = subprocess.run("git branch --show-current", shell=True, capture_output=True, text=True)
+    return result.stdout.strip()
+
+def show_help():
+    print("""
+git-save: A simple tool to quickly save your work in Git.
+
+Usage:
+  git-save "commit message" [--push]
+
+Options:
+  --push     Also push the commit to the current branch on origin
+  --help     Show this help message
+
+Examples:
+  git-save "Update README"
+  git-save "Add login feature" --push
+""")
+
+def main():
+    if "--help" in sys.argv or len(sys.argv) < 2:
+        show_help()
+        sys.exit(0)
+
+    message = sys.argv[1]
+    push = "--push" in sys.argv
+
+    print("📦 Adding changes...")
+    run("git add .")
+
+    print(f"📝 Committing with message: {message}")
+    run(f'git commit -m "{message}"')
+
+    if push:
+        branch = get_current_branch()
+        print(f"🚀 Pushing to origin/{branch}...")
+        run(f"git push origin {branch}")
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shellflower</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./publics/styles.css" />
+</head>
+<body>
+  <nav>
+    <h1><b> &lt;/&gt; Shellflower </b></h1>
+    <a href="#git-undo">> git-undo</a>
+    <a href="#git-save">> git-save</a>
+  </nav>
+
+  <main>
+    <section id="git-undo" class="tool">
+      <h2>🔄 git-undo</h2>
+      <p>A simple CLI tool to undo common Git mistakes like bad commits, staging errors, or merge problems.</p>
+
+      <h3>Features</h3>
+      <ul>
+        <li>Undo last commit (keep changes staged)</li>
+        <li>Unstage all files</li>
+        <li>Abort in-progress merge</li>
+        <li>Recover from hard resets using <code>reflog</code></li>
+        <li>Auto-detect last safe action</li>
+      </ul>
+
+      <h3>Usage</h3>
+      <pre><code>
+git undo commit
+git undo add
+git undo reset
+git undo merge
+git undo
+      </code></pre>
+
+      <h3>Install</h3>
+      <pre><code>
+curl -O https://raw.githubusercontent.com/YOUR-USERNAME/git-undo/main/git-undo
+chmod +x git-undo
+mv git-undo ~/bin/
+      </code></pre>
+
+      <p><a href="https://github.com/YOUR-USERNAME/git-undo" target="_blank" rel="noopener noreferrer">View on GitHub →</a></p>
+    </section>
+
+    <section id="git-save" class="tool">
+      <h2>🐣 git-save</h2>
+      <p>A helper tool to quickly save your changes in Git with one command. Great for speeding up commit workflows during development.</p>
+
+      <h3>Features</h3>
+      <ul>
+        <li>Adds all current changes</li>
+        <li>Commits with a message</li>
+        <li>Optional <code>--push</code> flag to push directly to the current branch</li>
+        <li>Built-in help via <code>--help</code></li>
+      </ul>
+
+      <h3>Usage</h3>
+      <pre><code>
+git-save "Fix navbar bug"
+git-save "Update README" --push
+git-save --help
+      </code></pre>
+
+      <h3>Install</h3>
+      <pre><code>
+curl -O https://raw.githubusercontent.com/YOUR-USERNAME/git-save/main/git-save
+chmod +x git-save
+mv git-save ~/bin/
+      </code></pre>
+
+      <p><a href="https://github.com/YOUR-USERNAME/git-save" target="_blank" rel="noopener noreferrer">View on GitHub →</a></p>
+    </section>
+
+    <footer>
+      Made by a Unix Wizard in training. · <a href="https://github.com/YOUR-USERNAME" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </footer>
+  </main>
+
+</body>
+</html>
