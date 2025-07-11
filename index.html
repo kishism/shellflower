@@ -10,7 +10,9 @@
   <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
-  <nav>
+  <button id="sidebar-toggle" aria-label="Toggle Sidebar">☰</button>
+  <div id="overlay"></div>
+  <nav id="sidebar">
     <h1><b> &lt;/&gt; Shellflower </b></h1>
     <a href="#git-undo">> git-undo</a>
     <a href="#git-save">> git-save</a>
@@ -108,6 +110,20 @@ mv project-init ~/bin/
       Made by a Unix Wizard in training. · <a href="https://github.com/kishism" target="_blank" rel="noopener noreferrer">GitHub</a>
     </footer>
   </main>
+  <script>
+    const toggleBtn = document.getElementById('sidebar-toggle');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
 
+    toggleBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+      overlay.classList.toggle('active');
+    });
+
+    overlay.addEventListener('click', () => {
+      sidebar.classList.remove('open');
+      overlay.classList.remove('active');
+    });
+  </script>
 </body>
 </html>
