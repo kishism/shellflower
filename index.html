@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Shellflower</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="stylesheet" href="./publics/styles.css" />
   <script defer src="/_vercel/insights/script.js"></script>
 </head>
@@ -13,6 +14,7 @@
     <h1><b> &lt;/&gt; Shellflower </b></h1>
     <a href="#git-undo">> git-undo</a>
     <a href="#git-save">> git-save</a>
+    <a href="#project-init">> project-init</a>
   </nav>
 
   <main>
@@ -74,6 +76,31 @@ chmod +x git-save
 mv git-save ~/bin/
       </code></pre>
 
+      <p><a href="https://github.com/kishism/shellflower" target="_blank" rel="noopener noreferrer">View on GitHub →</a></p>
+    </section>
+
+    <section id="project-init" class="tool">
+      <h2>🌱 project-init</h2>
+      <p>A CLI utility to generate basic project structures with optional templates and Git setup.</p>
+      <h3>Features</h3>
+      <ul>
+        <li>Supports templates: <code>python</code>, <code>node</code>, <code>html</code></li>
+        <li>Auto-generates folder structure and starter files</li>
+        <li>Optional Git initialization</li>
+        <li>Custom <code>README.md</code> per project</li>
+      </ul>
+      <h3>Usage</h3>
+      <pre><code>
+project-init my-app
+project-init my-site --template html
+project-init my-lib --template python --git
+      </code></pre>
+      <h3>Install</h3>
+      <pre><code>
+curl -O https://raw.githubusercontent.com/kishism/shellflower/master/tools/project-init
+chmod +x project-init
+mv project-init ~/bin/
+      </code></pre>
       <p><a href="https://github.com/kishism/shellflower" target="_blank" rel="noopener noreferrer">View on GitHub →</a></p>
     </section>
 

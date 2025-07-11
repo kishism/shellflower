@@ -1,0 +1,126 @@
+#!/usr/bin/env python3
+import os
+import sys
+import subprocess
+
+def run(cmd):
+    subprocess.run(cmd, shell=True, check=True)
+
+def write_file(path, content):
+    with open(path, 'w') as f:
+        f.write(content)
+
+def create_project(name, template=None, use_git=False):
+    os.makedirs(name, exist_ok=True)
+    os.chdir(name)
+
+    print(f"> Created project: {name}")
+    write_file("README.md", f"# {name}\n")
+
+    # Template handling
+    if template == "python":
+        os.makedirs("src", exist_ok=True)
+        os.makedirs("tests", exist_ok=True)
+        write_file("requirements.txt", "# Add your Python packages here\n")
+        write_file(".gitignore", "__pycache__/\n*.pyc\n.env/\n")
+        print("Python template applied")
+
+    elif template == "node":
+        os.makedirs("src", exist_ok=True)
+        write_file("package.json", f"""{{
+                    "name": "{name}",
+                    "version": "1.0.0"
+                    }}""")
+        write_file(".gitignore", "node_modules/\n.env\n")
+        print("Node.js template applied")
+
+    elif template == "html":
+        os.makedirs("scripts", exist_ok=True)
+        os.makedirs("assets", exist_ok=True)
+
+        write_file("index.html", f"""<!DOCTYPE html>
+            <html lang="en">
+            <head>
+            <meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <title>{name}</title>
+            <link rel="stylesheet" href="style.css" />
+            </head>
+            <body>
+            <header>
+                <h1>Welcome to {name}</h1>
+            </header>
+
+            <main>
+                <p>Start building your awesome project here!</p>
+            </main>
+
+            <footer>
+                <small>&copy; 2025 Your Name</small>
+            </footer>
+
+            <script src="scripts/main.js"></script>
+            </body>
+            </html>
+            """)
+
+        write_file("style.css", """body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+            color: #333;
+            }
+            header, footer {
+            background: #333;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            }
+            main {
+            padding: 2rem;
+            }
+            """)
+
+        write_file("scripts/main.js", """console.log("Welcome to your new project!");""")
+        write_file(".gitignore", "node_modules/\ndist/\n.DS_Store\n.env\n")
+        print("🌐 HTML template applied")
+
+    elif template:
+        print(f"Unknown template: {template}")
+        write_file(".gitignore", ".DS_Store\n.env\n")
+
+    else:
+        write_file(".gitignore", ".DS_Store\n.env\n")
+
+    # Git init
+    if use_git:
+        run("git init")
+        print("Initialized Git repository")
+
+def main():
+    if len(sys.argv) < 2 or "--help" in sys.argv:
+        print("""
+            Usage:
+            project-init <project-name> [--template <name>] [--git]
+
+            Options:
+            --template    Template to use (python, node, html)
+            --git         Initialize a Git repository
+            --help        Show this help message
+            """)
+        return
+
+    name = sys.argv[1]
+    template = None
+    if "--template" in sys.argv:
+        idx = sys.argv.index("--template")
+        if idx + 1 < len(sys.argv):
+            template = sys.argv[idx + 1].lower()
+
+    use_git = "--git" in sys.argv
+
+    create_project(name, template, use_git)
+
+if __name__ == "__main__":
+    main()
