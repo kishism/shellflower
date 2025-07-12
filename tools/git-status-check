@@ -5,10 +5,10 @@ if ! git rev-parse --is-inside-work-tree &>/dev/null; then
     exit 1
 fi
 
-echo "Branch: &(git rev-parse --abbrev-ref HEAD)"
+echo "Branch: $(git rev-parse --abbrev-ref HEAD)"
 
-echo -e "\n Status:"
+echo -e "\nStatus:"
 git status -sb
 
-echo -e "\n Recent Commits:"
+echo -e "\nRecent Commits:"
 git log --oneline -n 3
