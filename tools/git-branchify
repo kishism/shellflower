@@ -5,7 +5,7 @@ if ! git rev-parse --is-inside-work-tree &>/dev/null; then
     exit 1
 fi
 
-if p -z "$1" ]; then
+if [ -z "$1" ]; then
     echo "Usage: git-branchify \"Branch name here\""
     exit 1
 fi
