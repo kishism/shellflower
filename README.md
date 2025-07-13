@@ -20,6 +20,10 @@ This project is an ongoing experiment to teach myself in shell scripting, git su
 
 `project-init` Scaffold new projects with templates and Git setup
 
+`git-status-check` — Display branch info, concise git status, and recent commits  
+
+`git-branchify` — Create and checkout a new branch with a clean, formatted name 
+
 ## MIT License
 
 MIT License
