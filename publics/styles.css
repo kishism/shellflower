@@ -7,7 +7,7 @@
 body {
   margin: 0;
   font-family: "Space Grotesk", sans-serif;
-  background: #f9fafb;
+  background: rgba(224, 224, 224, 0.449);
   color: #212529;
   min-height: 100vh;
 }
