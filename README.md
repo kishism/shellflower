@@ -22,7 +22,9 @@ This project is an ongoing experiment to teach myself in shell scripting, git su
 
 `git-status-check` — Display branch info, concise git status, and recent commits  
 
-`git-branchify` — Create and checkout a new branch with a clean, formatted name 
+`git-branchify` — Create and checkout a new branch with a clean, formatted name
+
+`git-pushup` — Push your commits to GitHub and automatically open the repository page in your default browser
 
 ## MIT License
 
