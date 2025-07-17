@@ -26,6 +26,8 @@ This project is an ongoing experiment to teach myself in shell scripting, git su
 
 `git-pushup` — Push your commits to GitHub and automatically open the repository page in your default browser
 
+`whoami` — A fun one-liner tool that displays your current Git username, active branch, remote repository URL, and the latest commit message.
+
 ## MIT License
 
 MIT License

@@ -13,13 +13,14 @@
   <button id="sidebar-toggle" aria-label="Toggle Sidebar">☰</button>
   <div id="overlay"></div>
   <nav id="sidebar">
-    <h1><b> &lt;/&gt; Shellflower </b></h1>
+    <h1 class="logo">&lt;/&gt; Shellflower</h1>
     <a href="#git-undo">> git-undo</a>
     <a href="#git-save">> git-save</a>
     <a href="#project-init">> project-init</a>
     <a href="#git-status-check">> git-status-check</a>
     <a href="#git-branchify">> git-branchify</a>
     <a href="#git-pushup">> git-pushup</a>
+    <a href="#whomai">> whoami </a>
   </nav>
 
   <main>
@@ -154,9 +155,9 @@ mv git-status-check ~/bin/
     
       <h3>Install</h3>
       <pre><code>
-    curl -O https://raw.githubusercontent.com/kishism/shellflower/master/tools/git-branchify
-    chmod +x git-branchify
-    mv git-branchify ~/bin/
+curl -O https://raw.githubusercontent.com/kishism/shellflower/master/tools/git-branchify
+chmod +x git-branchify
+mv git-branchify ~/bin/
       </code></pre>
     
       <p><a href="https://github.com/kishism/shellflower" target="_blank" rel="noopener noreferrer">View on GitHub →</a></p>
@@ -189,6 +190,25 @@ mv git-pushup ~/bin/
       <p><strong>Note:</strong> This script currently supports browser opening on macOS and Linux only.
         For Windows users, you'll need to open the GitHub page manually.</p>
         
+      <p><a href="https://github.com/kishism/shellflower" target="_blank" rel="noopener noreferrer">View on GitHub →</a></p>
+    </section>
+
+    <section id="whoami" class="tool">
+      <h2>🕵️‍♂️ whoami</h2>
+      <p>A quick one-liner to display your current Git user, branch, remote repository URL, and the last commit message.</p>
+    
+      <h3>Usage</h3>
+      <pre><code>
+git whoami
+</code></pre>
+    
+      <h3>Example Output</h3>
+      <pre><code>
+Git User: Jane Doe &lt;jane@example.com&gt;
+Branch: main
+Remote: git@github.com:jane/repo.git
+Last Commit: Fix typo in README
+      </code></pre>
       <p><a href="https://github.com/kishism/shellflower" target="_blank" rel="noopener noreferrer">View on GitHub →</a></p>
     </section>
 
